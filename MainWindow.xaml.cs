@@ -23,6 +23,14 @@ namespace Calendar
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = DataContext;
+            TextBlock textBlock = new TextBlock();
+            StackPanel stackPanel = new StackPanel();
+
+            textBlock.Text = "ddd";
+            stackPanel.SetValue(Grid.RowProperty, 0);
+            stackPanel.Children.Add(textBlock);
+            gridMain.Children.Add(stackPanel);
         }
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)

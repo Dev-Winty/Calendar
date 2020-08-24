@@ -18,5 +18,25 @@
             <Button Width="25" Height="25" Margin="5, 0, 0, 0" Background="Red" Opacity="0.7" Click="exitBtn_Click"></Button>
             <Button Width="25" Height="25" Margin="5, 0" Background="Green" Opacity="0.7" Click="minimizeBtn_Click"></Button>
         </StackPanel>
+        <Grid Name="gridMain" Grid.Row="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Silver" BorderThickness="2" Opacity="0.7">
+            </Border>
+        </Grid>
     </Grid>
 </Window>
