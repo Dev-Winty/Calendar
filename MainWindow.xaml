@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calendar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1000" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None">
+    <Window.Background>
+        <SolidColorBrush Opacity="0.3" Color="Silver"/>
+    </Window.Background>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="Silver" Opacity="0.6" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button Width="25" Height="25" Margin="5, 0, 0, 0" Background="Red" Opacity="0.7" Click="exitBtn_Click"></Button>
+            <Button Width="25" Height="25" Margin="5, 0" Background="Green" Opacity="0.7" Click="minimizeBtn_Click"></Button>
+        </StackPanel>
     </Grid>
 </Window>

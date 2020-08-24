@@ -16,6 +16,8 @@ namespace Calendar
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
+            mainWindow.Top = 60;
+            mainWindow.Left = 500;
             mainWindow.Show();
         }
     }
