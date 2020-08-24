@@ -35,8 +35,6 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Border BorderBrush="Silver" BorderThickness="2" Opacity="0.7">
-            </Border>
         </Grid>
     </Grid>
 </Window>
