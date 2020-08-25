@@ -39,3 +39,5 @@ C:\Users\USER\source\repos\Calendar\bin\Debug\System.Memory.xml
 C:\Users\USER\source\repos\Calendar\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\USER\source\repos\Calendar\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\USER\source\repos\Calendar\obj\Debug\Calendar.csproj.CopyComplete
+C:\Users\USER\source\repos\Calendar\obj\Debug\SignUp.g.cs
+C:\Users\USER\source\repos\Calendar\obj\Debug\SignUp.baml

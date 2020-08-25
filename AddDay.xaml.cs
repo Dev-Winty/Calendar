@@ -21,6 +21,7 @@ namespace Calendar
     public partial class AddDay : Window
     {
         MainWindow mainWindow = (MainWindow)System.Windows.Application.Current.MainWindow;
+        SendQueryDB SendQuery = new SendQueryDB();
         public AddDay()
         {
             InitializeComponent();
@@ -30,33 +31,15 @@ namespace Calendar
         {
             int date = int.Parse(addDayDate.Text);
             string dayOfWeek = addDayofWeek.Text;
-            string cotents = addDayContents.Text;
+            string contents = addDayContents.Text;
             int row = int.Parse(addDayRow.Text);
             int column = int.Parse(addDayColumn.Text);
 
-            mainWindow.days.Add(new Day { date = date, dayOfWeek = dayOfWeek, contents = cotents, row = row, column = column });
-            sendQueryDB(date, dayOfWeek, cotents, row, column);
+            mainWindow.days.Add(new Day { date = date, dayOfWeek = dayOfWeek, contents = contents, row = row, column = column });
+            SendQuery.sendQuery("INSERT INTO `days` VALUES(" + date + ", '" + dayOfWeek + "', '" + contents + "'," + row + ", " + column + ");");
             mainWindow.saveCalendar();
             mainWindow.printCalendar();
             //this.Close();
-        }
-
-        private void sendQueryDB(int date, string dayOfWeek, string contents, int row, int column)
-        {
-            using (MySqlConnection connection = new MySqlConnection("Server=localhost;Port=3306;Database=calendar;Uid=root;Pwd=winty0320"))
-            {
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = new MySqlCommand("INSERT INTO `days` VALUES(" + date + ", '" + dayOfWeek + "', '" + contents + "', " + row + ", " + column + ");", connection);
-                    command.ExecuteNonQuery();
-                } catch (Exception ex)
-                {
-                    MessageBox.Show("Query 전송 오류");
-                }
-
-            } 
-
         }
     }
 }
