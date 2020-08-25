@@ -111,7 +111,6 @@ namespace Calendar
             {   
               
                 date = Int32.Parse(reader.ReadLine());
-                MessageBox.Show(date.ToString());
                 dayOfWeek = reader.ReadLine();
                 contents = reader.ReadLine();
                 row = Convert.ToInt32(reader.ReadLine());
@@ -120,6 +119,10 @@ namespace Calendar
             }         
             //MessageBox.Show(days[0].date.ToString() + " " + days[0].row.ToString() + " " + days[0].column.ToString());
             reader.Close();
+        }
+        private void addMenu_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
     public class Day

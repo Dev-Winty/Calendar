@@ -15,8 +15,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Background="Silver" Opacity="0.6" Orientation="Horizontal" FlowDirection="RightToLeft">
-            <Button Width="25" Height="25" Margin="5, 0, 0, 0" Background="Red" Opacity="0.7" Click="exitBtn_Click"></Button>
-            <Button Width="25" Height="25" Margin="5, 0" Background="Green" Opacity="0.7" Click="minimizeBtn_Click"></Button>
+            <Button Width="25" Height="25" Margin="5, 0, 0, 0" Background="Red" Opacity="0.7" Click="exitBtn_Click" ToolTip="종료"></Button>
+            <Button Width="25" Height="25" Margin="5, 0" Background="Green" Opacity="0.7" Click="minimizeBtn_Click" ToolTip="최소화"></Button>
+            <Menu Width="40" Height="25" Opacity="0.7">
+                <MenuItem Header="_매뉴">
+                    <MenuItem Header="_일정 추가" Click="addMenu_Click"/>
+                </MenuItem>
+            </Menu>
         </StackPanel>
         <Grid Name="gridMain" Grid.Row="1" Margin="20">
             <Grid.ColumnDefinitions>
