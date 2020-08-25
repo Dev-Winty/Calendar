@@ -13,3 +13,5 @@ C:\Users\USER\source\repos\Calendar\obj\Debug\Calendar.csproj.GenerateResource.c
 C:\Users\USER\source\repos\Calendar\obj\Debug\Calendar.csproj.CoreCompileInputs.cache
 C:\Users\USER\source\repos\Calendar\obj\Debug\Calendar.exe
 C:\Users\USER\source\repos\Calendar\obj\Debug\Calendar.pdb
+C:\Users\USER\source\repos\Calendar\obj\Debug\AddDay.g.cs
+C:\Users\USER\source\repos\Calendar\obj\Debug\AddDay.baml

@@ -122,7 +122,8 @@ namespace Calendar
         }
         private void addMenu_Click(object sender, RoutedEventArgs e)
         {
-
+            AddDay addDay = new AddDay();
+            addDay.Show();
         }
     }
     public class Day
