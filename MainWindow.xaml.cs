@@ -126,6 +126,12 @@ namespace Calendar
             AddDay addDay = new AddDay();
             addDay.Show();
         }
+
+        private void addSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            SignUp signUp = new SignUp();
+            signUp.Show();
+        }
     }
     public class Day
     {

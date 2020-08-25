@@ -20,6 +20,7 @@
             <Menu Width="40" Height="25" Opacity="0.7">
                 <MenuItem Header="_매뉴">
                     <MenuItem Header="_일정 추가" Click="addMenu_Click"/>
+                    <MenuItem Header="_가입" Click="addSignUp_Click"/>
                 </MenuItem>
             </Menu>
         </StackPanel>

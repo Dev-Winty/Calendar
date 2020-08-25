@@ -21,7 +21,8 @@ namespace Calendar
     /// </summary>
     public partial class SignUp : Window
     {
-        private readonly string key = "";
+        SendQueryDB SendQuery = new SendQueryDB();
+        private readonly string key = "J@McQfTjWnZr4u7x!A%D*G-KaPdRgUkX";
         public SignUp()
         {
             InitializeComponent();
@@ -58,7 +59,8 @@ namespace Calendar
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            //MessageBox.Show(pwdBx.Password);
+            SendQuery.sendQuery("INSERT INTO `users` VALUES('" + emailBx.Text + "', '" + encryptString(pwdBx.Password) + "');");
         }
     }
 
