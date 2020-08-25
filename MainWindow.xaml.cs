@@ -120,6 +120,7 @@ namespace Calendar
             //MessageBox.Show(days[0].date.ToString() + " " + days[0].row.ToString() + " " + days[0].column.ToString());
             reader.Close();
         }
+
         private void addMenu_Click(object sender, RoutedEventArgs e)
         {
             AddDay addDay = new AddDay();

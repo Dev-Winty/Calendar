@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,9 +35,28 @@ namespace Calendar
             int column = int.Parse(addDayColumn.Text);
 
             mainWindow.days.Add(new Day { date = date, dayOfWeek = dayOfWeek, contents = cotents, row = row, column = column });
+            sendQueryDB(date, dayOfWeek, cotents, row, column);
             mainWindow.saveCalendar();
             mainWindow.printCalendar();
-            this.Close();
+            //this.Close();
+        }
+
+        private void sendQueryDB(int date, string dayOfWeek, string contents, int row, int column)
+        {
+            using (MySqlConnection connection = new MySqlConnection("Server=localhost;Port=3306;Database=calendar;Uid=root;Pwd=winty0320"))
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand("INSERT INTO `days` VALUES(" + date + ", '" + dayOfWeek + "', '" + contents + "', " + row + ", " + column + ");", connection);
+                    command.ExecuteNonQuery();
+                } catch (Exception ex)
+                {
+                    MessageBox.Show("Query 전송 오류");
+                }
+
+            } 
+
         }
     }
 }
