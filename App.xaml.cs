@@ -18,7 +18,8 @@ namespace Calendar
             MainWindow mainWindow = new MainWindow();
             mainWindow.Top = 60;
             mainWindow.Left = 500;
-            mainWindow.Show();
+            SignIn sign = new SignIn();
+            sign.Show();
         }
     }
 }

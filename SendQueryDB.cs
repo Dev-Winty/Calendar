@@ -24,5 +24,26 @@ namespace Calendar
                 }
             }
         }
+        public string selectSql(string cmd, string column)
+        {
+            string returnString = "";
+            using (MySqlConnection connection = new MySqlConnection("Server=localhost;Port=3306;Database=calendar;Uid=root;Pwd=winty0320"))
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand(cmd, connection);
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    reader.Read();
+                    returnString = (string)reader[column];
+                    reader.Close();
+                } catch (Exception ex)
+                {
+
+                }
+            }
+            return returnString;
+        }
     }
 }

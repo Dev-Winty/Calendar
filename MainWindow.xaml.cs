@@ -132,6 +132,12 @@ namespace Calendar
             SignUp signUp = new SignUp();
             signUp.Show();
         }
+
+        private void SignIn_Click(object sender, RoutedEventArgs e)
+        {
+            SignIn signIn = new SignIn();
+            signIn.Show();
+        }
     }
     public class Day
     {

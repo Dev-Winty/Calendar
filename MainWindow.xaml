@@ -21,6 +21,7 @@
                 <MenuItem Header="_매뉴">
                     <MenuItem Header="_일정 추가" Click="addMenu_Click"/>
                     <MenuItem Header="_가입" Click="addSignUp_Click"/>
+                    <MenuItem Header="_로그인" Click="SignIn_Click"/>
                 </MenuItem>
             </Menu>
         </StackPanel>

@@ -22,45 +22,17 @@ namespace Calendar
     public partial class SignUp : Window
     {
         SendQueryDB SendQuery = new SendQueryDB();
-        private readonly string key = "J@McQfTjWnZr4u7x!A%D*G-KaPdRgUkX";
+        Encrypt encrypt = new Encrypt();
         public SignUp()
         {
             InitializeComponent();
-        }
-        private string encryptString(string targetString)
-        {
-            string endedString = "";
-            try
-            {
-                RijndaelManaged rijndaelManaged = new RijndaelManaged();
-                byte[] vs = System.Text.Encoding.Unicode.GetBytes(targetString);
-                byte[] salt = Encoding.ASCII.GetBytes(key.Length.ToString());
-                PasswordDeriveBytes secretKey = new PasswordDeriveBytes(key, salt);
-                ICryptoTransform encrytor = rijndaelManaged.CreateEncryptor(secretKey.GetBytes(32), secretKey.GetBytes(16));
-                MemoryStream memoryStream = new MemoryStream();
-                CryptoStream cryptoStream = new CryptoStream(memoryStream, encrytor, CryptoStreamMode.Write);
-
-
-                cryptoStream.Write(vs, 0, vs.Length);
-                cryptoStream.FlushFinalBlock();
-                byte[] chiperBytes = memoryStream.ToArray();
-
-                memoryStream.Close();
-                cryptoStream.Close();
-
-                endedString = Convert.ToBase64String(chiperBytes);
-            } catch (Exception ex)
-            {
-                MessageBox.Show("암호화 오류");
-            }
-            return endedString;
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show(pwdBx.Password);
-            SendQuery.sendQuery("INSERT INTO `users` VALUES('" + emailBx.Text + "', '" + encryptString(pwdBx.Password) + "');");
+            SendQuery.sendQuery("INSERT INTO `users` VALUES('" + emailBx.Text + "', '" + encrypt.encryptString(pwdBx.Password) + "');");
+            MessageBox.Show("가입 완료");
         }
     }
 
