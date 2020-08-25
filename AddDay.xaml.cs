@@ -23,7 +23,6 @@ namespace Calendar
         public AddDay()
         {
             InitializeComponent();
-            MessageBox.Show(((MainWindow)System.Windows.Application.Current.MainWindow).days[1].contents);
         }
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
@@ -36,7 +35,8 @@ namespace Calendar
 
             mainWindow.days.Add(new Day { date = date, dayOfWeek = dayOfWeek, contents = cotents, row = row, column = column });
             mainWindow.saveCalendar();
-            mainWindow.printCalendar();            
+            mainWindow.printCalendar();
+            this.Close();
         }
     }
 }
