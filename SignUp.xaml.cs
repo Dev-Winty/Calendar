@@ -32,18 +32,24 @@ namespace Calendar
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             SignIn signIn = new SignIn();
-            //MessageBox.Show(pwdBx.Password);
-            SendQuery.sendQuery("INSERT INTO `users` VALUES('" + emailBx.Text + "', '" + encrypt.encryptString(pwdBx.Password) + "');");
-            SendQuery.sendQuery("CREATE TABLE `" + emailBx.Text + "` (`date` INT NOT NULL, `contents` VARCHAR(200));");
 
-            for(int i = 1; i < 32; i++)
+            if (SendQuery.selectSql("SELECT * FROM `users` WHERE email='" + emailBx.Text + "';", 0) == "")
             {
-                SendQuery.sendQuery("INSERT INTO `" + emailBx.Text + "` VALUES(" + i + ", '" + SendQuery.selectSql("SELECT * FROM `days` WHERE date = " + i + ";", 2) + "');");
+                SendQuery.sendQuery("INSERT INTO `users` VALUES('" + emailBx.Text + "', '" + encrypt.encryptString(pwdBx.Password) + "');");
+                SendQuery.sendQuery("CREATE TABLE `" + emailBx.Text + "` (`date` INT NOT NULL, `contents` VARCHAR(200));");
+
+                for (int i = 1; i < 32; i++)
+                {
+                    SendQuery.sendQuery("INSERT INTO `" + emailBx.Text + "` VALUES(" + i + ", '" + SendQuery.selectSql("SELECT * FROM `days` WHERE date = " + i + ";", 2) + "');");
+                }
+                mainWindow.account = emailBx.Text;
+                MessageBox.Show("가입 완료");
+                signIn.Show();
+                this.Close();
+            } else
+            {
+                MessageBox.Show("이미 가입된 게정입니다!");
             }
-            mainWindow.account = emailBx.Text;
-            MessageBox.Show("가입 완료");
-            signIn.Show();
-            this.Close();
         }
     }
 

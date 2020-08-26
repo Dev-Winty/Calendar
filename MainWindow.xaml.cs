@@ -28,6 +28,7 @@ namespace Calendar
         public List<Day> days = new List<Day>();
         SendQueryDB SendQuery = new SendQueryDB();
         public string account = "";
+        
         public MainWindow()
         {   
             InitializeComponent();
@@ -108,22 +109,22 @@ namespace Calendar
             addDay.Show();
         }
 
-        private void addSignUp_Click(object sender, RoutedEventArgs e)
-        {
-            SignUp signUp = new SignUp();
-            signUp.Show();
-        }
-
-        private void SignIn_Click(object sender, RoutedEventArgs e)
-        {
-            SignIn signIn = new SignIn();
-            signIn.Show();
-        }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             loadCalendar();
             printCalendar();
+        }
+
+        private void logOut_Click(object sender, RoutedEventArgs e)
+        {
+            SignIn signIn = new SignIn();
+
+            account = "";
+            days.Clear();
+            gridMain.Children.Clear();
+            signIn.Show();
+            this.Hide();
+            
         }
     }
     public class Day
