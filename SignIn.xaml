@@ -17,5 +17,6 @@
             <PasswordBox Name="pwdBx" Width="150" MaxLength="16"/>
         </WrapPanel>
         <Button HorizontalAlignment="Right" Margin="45, 0" Width="80" Height="40" Click="signInBtn_Click">로그인</Button>
+        <Button Margin="45, 20" HorizontalAlignment="Right" Width="80" Height="20" Click="signUpBtn_Click">회원가입</Button>
     </StackPanel>
 </Window>

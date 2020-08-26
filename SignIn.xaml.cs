@@ -36,25 +36,34 @@ namespace Calendar
         private void signInBtn_Click(object sender, RoutedEventArgs e)
         {
             string email = emailBx.Text;
+            bool isSignIn = false;
             string pwd = encrypt.encryptString(pwdBx.Password);
-            if (SendQuery.selectSql("SELECT * FROM `users` WHERE email='" + email + "';", "email") != null)
+            if (SendQuery.selectSql("SELECT * FROM `users` WHERE email='" + email + "';", 0) != null)
             {
-                if (pwd.Equals(SendQuery.selectSql("SELECT * FROM `users` WHERE password='" + pwd + "';", "password")))
+
+                if (pwd.Equals(SendQuery.selectSql("SELECT * FROM `users` WHERE email='" + email + "';", 1)) && email.Equals(SendQuery.selectSql("SELECT * FROM `users` WHERE email='" + email + "';", 0)))
                 {
                     MainWindow mainWindow = (MainWindow)System.Windows.Application.Current.MainWindow;
                     mainWindow.Show();
                     this.Close();
-                } else
-                {
-                    MessageBox.Show("로그인 오류");
+                    return;
                 }
-
             }
             else
             {
                 MessageBox.Show("로그인 오류");
             }
+            if (!isSignIn)
+            {
+                MessageBox.Show("로그인 오류");
+            }
+        }
 
+        private void signUpBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SignUp signUp = new SignUp();
+            signUp.Show();
+            this.Close();
         }
     }
 }

@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace Calendar
 {
@@ -25,6 +26,7 @@ namespace Calendar
         public string dayOfWeek = "";
         public int date = 0;
         public List<Day> days = new List<Day>();
+        SendQueryDB SendQuery = new SendQueryDB();
         public MainWindow()
         {   
             InitializeComponent();
@@ -36,7 +38,6 @@ namespace Calendar
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)
         {
-            saveCalendar();
             System.Windows.Application.Current.Shutdown();
         }
 
@@ -82,43 +83,25 @@ namespace Calendar
                 gridMain.Children.Add(border);
             }
         }
-
-        public void saveCalendar()
-        {
-            StreamWriter writer = new StreamWriter("Save.txt");
-            int i;
-
-            for (i = 0; i < days.Count; i++)
-            {
-                writer.WriteLine(days[i].date);
-                writer.WriteLine(days[i].dayOfWeek);
-                writer.WriteLine(days[i].contents);
-                writer.WriteLine(days[i].row);
-                writer.WriteLine(days[i].column);
-            }
-            writer.Close();
-
-        }
-
         public void loadCalendar()
         {
-            StreamReader reader = new StreamReader("Save.txt");
-            int date = 0;
-            string dayOfWeek = "";
-            string contents = "";
-            int row = 0, column = 0;
-            while (reader.Peek() >= 0)
-            {   
-              
-                date = Int32.Parse(reader.ReadLine());
-                dayOfWeek = reader.ReadLine();
-                contents = reader.ReadLine();
-                row = Convert.ToInt32(reader.ReadLine());
-                column = Convert.ToInt32(reader.ReadLine());
-                days.Add(new Day { date = date, dayOfWeek = dayOfWeek, contents = contents, row = row, column = column });
-            }         
-            //MessageBox.Show(days[0].date.ToString() + " " + days[0].row.ToString() + " " + days[0].column.ToString());
-            reader.Close();
+            int date;
+            string dayOfWeek;
+            string contents;
+            int row, column;
+            int i;
+
+            for (i = 1; i < 32; i++)
+            {
+                date = int.Parse(SendQuery.selectSql("SELECT * FROM `days` WHERE date = " + i + ";", 0));
+                dayOfWeek = SendQuery.selectSql("SELECT * FROM `days` WHERE date = " + i + ";", 1);
+                contents = SendQuery.selectSql("SELECT * FROM `days` WHERE date = " + i + ";", 2);
+                row = int.Parse(SendQuery.selectSql("SELECT * FROM `days` WHERE date = " + i + ";", 3));
+                column = int.Parse(SendQuery.selectSql("SELECT * FROM `days` WHERE date = " + i + ";", 4));
+
+                days.Add(new Day { date = date, dayOfWeek = dayOfWeek, contents = contents, row = row, column = column});
+            }
+            
         }
 
         private void addMenu_Click(object sender, RoutedEventArgs e)

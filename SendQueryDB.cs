@@ -24,7 +24,7 @@ namespace Calendar
                 }
             }
         }
-        public string selectSql(string cmd, string column)
+        public string selectSql(string cmd, int i)
         {
             string returnString = "";
             using (MySqlConnection connection = new MySqlConnection("Server=localhost;Port=3306;Database=calendar;Uid=root;Pwd=winty0320"))
@@ -36,7 +36,8 @@ namespace Calendar
                     MySqlDataReader reader = command.ExecuteReader();
 
                     reader.Read();
-                    returnString = (string)reader[column];
+                    returnString = reader[i].ToString();
+                    
                     reader.Close();
                 } catch (Exception ex)
                 {

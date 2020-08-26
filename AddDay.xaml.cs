@@ -37,7 +37,6 @@ namespace Calendar
 
             mainWindow.days.Add(new Day { date = date, dayOfWeek = dayOfWeek, contents = contents, row = row, column = column });
             SendQuery.sendQuery("INSERT INTO `days` VALUES(" + date + ", '" + dayOfWeek + "', '" + contents + "'," + row + ", " + column + ");");
-            mainWindow.saveCalendar();
             mainWindow.printCalendar();
             //this.Close();
         }

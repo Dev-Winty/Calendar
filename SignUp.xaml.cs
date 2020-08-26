@@ -30,9 +30,13 @@ namespace Calendar
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            SignIn signIn = new SignIn();
             //MessageBox.Show(pwdBx.Password);
             SendQuery.sendQuery("INSERT INTO `users` VALUES('" + emailBx.Text + "', '" + encrypt.encryptString(pwdBx.Password) + "');");
+            SendQuery.sendQuery("CREATE TABLE `" + emailBx.Text + "` (`date` INT NOT NULL,`dayofweek` VARCHAR(45) NOT NULL,`contents` VARCHAR(200) ,`row` INT NOT NULL,`column` INT NOT NULL);");
             MessageBox.Show("가입 완료");
+            signIn.Show();
+            this.Close();
         }
     }
 
