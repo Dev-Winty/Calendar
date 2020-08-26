@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calendar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None">
+        Title="MainWindow" Height="600" Width="1000" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None" Loaded="Window_Loaded">
     <Window.Background>
         <SolidColorBrush Opacity="0.3" Color="Silver"/>
     </Window.Background>
@@ -19,7 +19,7 @@
             <Button Width="25" Height="25" Margin="5, 0" Background="Green" Opacity="0.7" Click="minimizeBtn_Click" ToolTip="최소화"></Button>
             <Menu Width="40" Height="25" Opacity="0.7">
                 <MenuItem Header="_매뉴">
-                    <MenuItem Header="_일정 추가" Click="addMenu_Click"/>
+                    <MenuItem Header="_일정 변경" Click="addMenu_Click"/>
                     <MenuItem Header="_가입" Click="addSignUp_Click"/>
                     <MenuItem Header="_로그인" Click="SignIn_Click"/>
                 </MenuItem>

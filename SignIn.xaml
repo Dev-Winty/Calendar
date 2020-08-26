@@ -9,7 +9,7 @@
     <StackPanel Margin="20">
         <Label FontSize="30" FontWeight="Bold">로그인</Label>
         <WrapPanel Orientation="Horizontal">
-            <Label Width="60">이메일</Label>
+            <Label Width="60">아이디</Label>
             <TextBox Name="emailBx" Width="150" MaxLength="20"/>
         </WrapPanel>
         <WrapPanel Orientation="Horizontal" Margin="0, 10">

@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,15 +31,14 @@ namespace Calendar
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             int date = int.Parse(addDayDate.Text);
-            string dayOfWeek = addDayofWeek.Text;
             string contents = addDayContents.Text;
-            int row = int.Parse(addDayRow.Text);
-            int column = int.Parse(addDayColumn.Text);
 
-            mainWindow.days.Add(new Day { date = date, dayOfWeek = dayOfWeek, contents = contents, row = row, column = column });
-            SendQuery.sendQuery("INSERT INTO `days` VALUES(" + date + ", '" + dayOfWeek + "', '" + contents + "'," + row + ", " + column + ");");
+            SendQuery.sendQuery("UPDATE `" + mainWindow.account + "` SET contents='" + contents + "' WHERE date=" + date + ";");
+            mainWindow.gridMain.Children.Clear();
+            mainWindow.days.Clear();
+            mainWindow.loadCalendar();
             mainWindow.printCalendar();
-            //this.Close();
+            this.Close();
         }
     }
 }

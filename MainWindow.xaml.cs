@@ -27,13 +27,11 @@ namespace Calendar
         public int date = 0;
         public List<Day> days = new List<Day>();
         SendQueryDB SendQuery = new SendQueryDB();
+        public string account = "";
         public MainWindow()
         {   
             InitializeComponent();
-            this.DataContext = DataContext;
-            loadCalendar();
-            printCalendar();
-            
+            this.DataContext = DataContext; 
         }
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)
@@ -95,7 +93,7 @@ namespace Calendar
             {
                 date = int.Parse(SendQuery.selectSql("SELECT * FROM `days` WHERE date = " + i + ";", 0));
                 dayOfWeek = SendQuery.selectSql("SELECT * FROM `days` WHERE date = " + i + ";", 1);
-                contents = SendQuery.selectSql("SELECT * FROM `days` WHERE date = " + i + ";", 2);
+                contents = SendQuery.selectSql("SELECT * FROM `" + account + "` WHERE date = " + i + ";", 1);
                 row = int.Parse(SendQuery.selectSql("SELECT * FROM `days` WHERE date = " + i + ";", 3));
                 column = int.Parse(SendQuery.selectSql("SELECT * FROM `days` WHERE date = " + i + ";", 4));
 
@@ -120,6 +118,12 @@ namespace Calendar
         {
             SignIn signIn = new SignIn();
             signIn.Show();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            loadCalendar();
+            printCalendar();
         }
     }
     public class Day

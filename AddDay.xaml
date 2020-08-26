@@ -13,17 +13,8 @@
             <TextBox Name="addDayDate" Width="150"/>
         </WrapPanel>
         <WrapPanel Orientation="Horizontal">
-            <Label>요일</Label>
-            <TextBox Name="addDayofWeek" Width="150"/>
-        </WrapPanel>
-        <WrapPanel Orientation="Horizontal">
             <Label>할 일</Label>
             <TextBox Name="addDayContents" Width="150"/>
-        </WrapPanel>
-        <WrapPanel Orientation="Horizontal">
-            <Label>Row N Column</Label>
-            <TextBox Name="addDayRow" Width="70" Margin="0, 0, 10, 0"/>
-            <TextBox Name="addDayColumn" Width="70"/>
         </WrapPanel>
         <Button Click="addBtn_Click" Width="90" Height="50" Margin="20" HorizontalAlignment="Right">추가</Button>
     </StackPanel>

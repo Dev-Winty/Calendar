@@ -26,13 +26,6 @@ namespace Calendar
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-            
-        }
-
         private void signInBtn_Click(object sender, RoutedEventArgs e)
         {
             string email = emailBx.Text;
@@ -44,6 +37,7 @@ namespace Calendar
                 if (pwd.Equals(SendQuery.selectSql("SELECT * FROM `users` WHERE email='" + email + "';", 1)) && email.Equals(SendQuery.selectSql("SELECT * FROM `users` WHERE email='" + email + "';", 0)))
                 {
                     MainWindow mainWindow = (MainWindow)System.Windows.Application.Current.MainWindow;
+                    mainWindow.account = email;
                     mainWindow.Show();
                     this.Close();
                     return;

@@ -22,6 +22,7 @@ namespace Calendar
     public partial class SignUp : Window
     {
         SendQueryDB SendQuery = new SendQueryDB();
+        MainWindow mainWindow = (MainWindow)System.Windows.Application.Current.MainWindow;
         Encrypt encrypt = new Encrypt();
         public SignUp()
         {
@@ -33,7 +34,13 @@ namespace Calendar
             SignIn signIn = new SignIn();
             //MessageBox.Show(pwdBx.Password);
             SendQuery.sendQuery("INSERT INTO `users` VALUES('" + emailBx.Text + "', '" + encrypt.encryptString(pwdBx.Password) + "');");
-            SendQuery.sendQuery("CREATE TABLE `" + emailBx.Text + "` (`date` INT NOT NULL,`dayofweek` VARCHAR(45) NOT NULL,`contents` VARCHAR(200) ,`row` INT NOT NULL,`column` INT NOT NULL);");
+            SendQuery.sendQuery("CREATE TABLE `" + emailBx.Text + "` (`date` INT NOT NULL, `contents` VARCHAR(200));");
+
+            for(int i = 1; i < 32; i++)
+            {
+                SendQuery.sendQuery("INSERT INTO `" + emailBx.Text + "` VALUES(" + i + ", '" + SendQuery.selectSql("SELECT * FROM `days` WHERE date = " + i + ";", 2) + "');");
+            }
+            mainWindow.account = emailBx.Text;
             MessageBox.Show("가입 완료");
             signIn.Show();
             this.Close();
