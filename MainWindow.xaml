@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calendar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None">
+        Title="MainWindow" Height="600" Width="1000" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None" Loaded="Window_Loaded">
     <Window.Background>
         <SolidColorBrush Opacity="0.3" Color="Silver"/>
     </Window.Background>
@@ -15,8 +15,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Background="Silver" Opacity="0.6" Orientation="Horizontal" FlowDirection="RightToLeft">
-            <Button Width="25" Height="25" Margin="5, 0, 0, 0" Background="Red" Opacity="0.7" Click="exitBtn_Click"></Button>
-            <Button Width="25" Height="25" Margin="5, 0" Background="Green" Opacity="0.7" Click="minimizeBtn_Click"></Button>
+            <Button Width="25" Height="25" Margin="5, 0, 0, 0" Background="Red" Opacity="0.7" Click="exitBtn_Click" ToolTip="종료"></Button>
+            <Button Width="25" Height="25" Margin="5, 0" Background="Green" Opacity="0.7" Click="minimizeBtn_Click" ToolTip="최소화"></Button>
+            <Menu Width="40" Height="25" Opacity="0.7">
+                <MenuItem Header="_매뉴">
+                    <MenuItem Header="_일정 변경" Click="addMenu_Click"/>
+                    <MenuItem Header="_로그아웃 및 계정 변경" Click="logOut_Click"/>
+                </MenuItem>
+            </Menu>
         </StackPanel>
         <Grid Name="gridMain" Grid.Row="1" Margin="20">
             <Grid.ColumnDefinitions>
