@@ -10,7 +10,8 @@
         <Label FontWeight="Bold" FontSize="20">일정 추가</Label>
         <WrapPanel Orientation="Horizontal">
             <Label>날짜</Label>
-            <TextBox Name="addDayDate" Width="150"/>
+            <ComboBox Name="addDayDate" Width="150">
+            </ComboBox>
         </WrapPanel>
         <WrapPanel Orientation="Horizontal">
             <Label>할 일</Label>
