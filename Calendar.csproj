@@ -103,6 +103,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DeleteDay.xaml.cs">
+      <DependentUpon>DeleteDay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Encrypt.cs" />
     <Compile Include="SendQueryDB.cs" />
     <Compile Include="SignIn.xaml.cs">
@@ -112,6 +115,10 @@
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
     <Page Include="AddDay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteDay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

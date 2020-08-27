@@ -43,3 +43,5 @@ C:\Users\USER\source\repos\Calendar\obj\Debug\SignUp.g.cs
 C:\Users\USER\source\repos\Calendar\obj\Debug\SignUp.baml
 C:\Users\USER\source\repos\Calendar\obj\Debug\SignIn.g.cs
 C:\Users\USER\source\repos\Calendar\obj\Debug\SignIn.baml
+C:\Users\USER\source\repos\Calendar\obj\Debug\DeleteDay.g.cs
+C:\Users\USER\source\repos\Calendar\obj\Debug\DeleteDay.baml

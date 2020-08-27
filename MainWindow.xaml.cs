@@ -133,6 +133,12 @@ namespace Calendar
             this.Hide();
             
         }
+
+        private void deleteDate_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteDay deleteDay = new DeleteDay();
+            deleteDay.Show();
+        }
     }
     public class Day
     {

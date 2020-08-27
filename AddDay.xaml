@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AddDay" Height="400" Width="300">
     <StackPanel Margin="20">
-        <Label FontWeight="Bold" FontSize="20">일정 추가</Label>
+        <Label FontWeight="Bold" FontSize="20">일정 변경</Label>
         <WrapPanel Orientation="Horizontal">
             <Label>날짜</Label>
             <ComboBox Name="addDayDate" Width="150">

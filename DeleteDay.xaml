@@ -1,0 +1,17 @@
+﻿<Window x:Class="Calendar.DeleteDay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calendar"
+        mc:Ignorable="d"
+        Title="DeleteDay" Height="210" Width="300">
+    <StackPanel Margin="20">
+        <Label FontSize="20" FontWeight="Bold">일정 삭제</Label>
+        <WrapPanel Orientation="Horizontal">
+            <Label Width="60">날짜</Label>
+            <ComboBox Name="addDayDate" Width="150"></ComboBox>
+        </WrapPanel>
+        <Button Click="Button_Click" Width="90" Height="50" Margin="20" HorizontalAlignment="Right">삭제</Button>
+    </StackPanel>
+</Window>
