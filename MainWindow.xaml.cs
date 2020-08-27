@@ -33,6 +33,13 @@ namespace Calendar
         {   
             InitializeComponent();
             this.DataContext = DataContext; 
+
+            if (SendQuery.selectSql("SELECT * FROM `days`;", 0) == "")
+            {
+                MessageBox.Show("DB연결 오류" + Environment.NewLine + "재접속 필요!");
+                System.Windows.Application.Current.Shutdown();
+            }
+
         }
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)

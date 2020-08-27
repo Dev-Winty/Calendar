@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Calendar
 {
@@ -16,9 +17,19 @@ namespace Calendar
     {
         MainWindow mainWindow = (MainWindow)System.Windows.Application.Current.MainWindow;
         SendQueryDB SendQuery = new SendQueryDB();
+        List<int> date = new List<int>();
+        
         public AddDay()
         {
             InitializeComponent();
+            for (int i = 0; i < 32; i++)
+            {
+                TextBlock textBlock = new TextBlock();
+
+                textBlock.Text = i.ToString();
+                date.Add(i);
+            }
+            addDayDate.ItemsSource = date;
         }
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
